@@ -1,0 +1,26 @@
+[package]
+name = "rat-scramble"
+version = "0.1.1"
+edition = "2024" # the edition of Rust being used
+
+[dependencies]
+# TODO remove dynamic_linking when shipping the game as a standalone!
+# TODO See https://bevy.org/learn/quick-start/getting-started/setup/#enable-fast-compiles-optional
+# TODO NOTE use the command line to do it! See link above!
+bevy = { version = "0.17.3", features = ["dynamic_linking"] }
+#rand = "0.9.2"
+bevy_rapier3d = "0.32.0"
+bevy-inspector-egui = "0.35.0"
+#cortex-m = "0.7.7"
+
+# Enable a small amount of optimization in the dev profile.
+[profile.dev]
+opt-level = 1
+
+# Enable a large amount of optimization in the dev profile for dependencies.
+[profile.dev.package."*"]
+opt-level = 3
+
+# Linker Speedup on Windows using LLD
+[target.x86_64-pc-windows-msvc]
+linker = "rust-lld.exe"
