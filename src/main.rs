@@ -1,3 +1,6 @@
+#[allow(unused_imports)]
+#[cfg(debug_assertions)]
+use bevy_dylib;
 
 mod camera;
 mod pid;
