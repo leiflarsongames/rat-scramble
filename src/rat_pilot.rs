@@ -1,6 +1,9 @@
+use bevy::math::ops::{cos, sin};
 use bevy::prelude::{Component, Transform, Vec3};
-use bevy_rapier3d::prelude::{ExternalImpulse, RigidBody};
 use crate::pid::Pid;
+
+use rand::{Rng, RngExt};
+use std::f32::consts::{PI};
 
 #[derive(Component)]
 pub struct RatPilot {
@@ -46,6 +49,8 @@ impl RatPilot {
             return Vec3::ZERO; // give no force commands.
         }
     }
+
+
 
 
 }
